@@ -1,0 +1,53 @@
+DS
+Phase 1 2☆
+Platoon 714000 + 714000 = 1428000 {102k (x4) + 153k (x2)}
+Combat  14850000 + 14850000 + 14850000 = 44550000 {31.5k + 50.5k + 86k + 129k}
+Special (4☆ Empire (Vader)) 8GE by player = 8*40 = 320
+Star (885000 + 6909000 + 47880000) + (445000 + 3474000 + 24075000) = 83668000
+
+Phase 2 3☆
+Platoon 882000 + 882000 = 1764000 {126k (x4) + 189k (x2)}
+Combat  17250000 + 17250000 = 34500000 {53k + 56k + 94k + 142k}
+Combat(3☆ Empire (SnowT)) = 17250000 (345000 by player) {53k + 56k + 94k + 142k}
+Special (4☆ Bounty Hunters) 9GE by player = 9*40 = 360
+Star (1900000 + 19800000 + 55000000) + (1900000 + 15400000 + 43800000) = 137800000
+
+Phase 3 4☆
+Platoon 906000 + 906000 = 1812000 [151k (x6)]
+Combat  20100000 + 20100000 = 40200000 {79k + 61k + 104k + 158k}
+Combat(4☆ Bounty Hunters) = 20100000 (402000 by player) {79k + 61k + 104k + 158k}
+Special(5☆ Troopers (5☆ Veers/Starck)) 2 IPD by player = 2*40 = 80 IPD
+Star (3510000 + 28980000 + 71280000) + (3510000 + 23520000 + 54810000) = 185610000
+Platoon Ship 906000 [151k (x6)]
+Combat Ship 20050000 4☆ LS
+Star Ships 1920000 + 17325000 + 28930000 = 48175000
+
+Phase 4 5☆
+Platoon 1056000 + 1056000 = 2112000 [176k (x6)]
+Combat  23300000 + 23300000 = 46600000 {95k + 70k + 120k + 181k}
+Combat(5☆ Empire (Veers/SnowT)) = 23300000 (466000 by player) {95k + 70k + 120k + 181k}
+Star (5220000 + 36435000 + 85910000) + (5220000 + 36435000 + 68860000) = 238080000
+Platoon Ship 960000 [176k (x4) + 264k (x2)]
+Combat Ship 26300000 4☆ LS
+Special (5☆ DS (Chimaera)) 20 GET by player = 20*40 = 800 GET
+Star Ships 2176000 + 19635000 + 32780000 = 54591000
+
+Phase 5 6☆
+Platoon 1242000 + 1242000 = 2484000 [207k (x6)]
+Combat  27050000 + 27050000 = 54100000 {116k + 79k + 138k + 208k}
+Combat (6☆ Empire) 27050000 {116k + 79k + 138k + 208k}
+Special(6☆ Bounty Hunters) 25 GET by player = 25*40 = 1000 GET
+Star (14100000 + 51765000 + 103270000) + (11100000 + 43050000 + 82340000) = 305625000
+Platoon Ship 14310000 [207k (x4) + 301.5k (x2)]
+Combat Ship 30800000 6☆ LS
+Star Ships 18000000 + 35700000 + 57500000 = 111200000
+
+Phase 6 7☆
+Platoon 1560000 + 1560000 = 3120000 [260k (x6)]
+Combat  35150000 + 35150000 = 70300000 {212k + 92k + 159k + 240k}
+Combat (7☆ Empire) 35150000 {212k + 92k + 159k + 240k}
+Special(7☆ Empire (Veers/Starck/IPD)) 30 GET by player = 30*40 = 1200 GET
+Star (31000000 + 72000000 + 100000000) + (26400000 + 59300000 + 81500000) = 370200000
+Platoon Ship 1820000 [260 (x4) + 390 (x2)]
+Combat Ship 39900000 7☆ LS
+Star Ships 21600000 + 44800000 + 78000000 = 144400000
