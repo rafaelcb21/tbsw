@@ -4,6 +4,18 @@ import (
 	"fmt"
 )
 
+type Personagem struct {
+	player string
+	nomeGuilda string
+	nome string
+	allycode string
+	codechar string
+	estrelas string
+	zeta string
+	nivel string
+	gear string
+}
+
 func main() {
 	sumPgPersonagem := 34562239
 	sumPgNave := 24248873
@@ -59,6 +71,72 @@ func stars(pg int, pgs[]int) int {
 		}
 	}
 	return 0
+}
+
+func combatPhase1LS(nivel, players int, percent float32) float32 {
+	combat := [...]int{24000, 51000, 91000, 144000, 211000, 291000}
+	pgCombat := float32(combat[nivel - 1] * 2 * players) * percent
+
+	return pgCombat
+}
+
+func combatPhase2LS(nivel, players int, percent float32) float32 {
+	combat := [...]int{43000, 72000, 115000, 172000, 243000, 329000}
+	pgCombat := float32(combat[nivel - 1] * 2 * players) * percent
+
+	return pgCombat
+}
+
+func combatPhase3LS(nivel, players int, percent float32) float32 {
+	combat := [...]int{65000, 96000, 142000, 203000, 280000, 372000}
+	pgCombat := float32(combat[nivel - 1] * 2 * players) * percent
+
+	return pgCombat
+}
+
+func combatPhase4LS(nivel, players int, percent float32) float32 {
+	combat := [...]int{76000, 111000, 163000, 232000, 319000, 423000}
+	pgCombat := float32(combat[nivel - 1] * 2 * players) * percent
+
+	return pgCombat
+}
+
+func combatPhase5LS(nivel, players int, percent float32) float32 {
+	combat := [...]int{90000, 128000, 185000, 261000, 356000, 470000}
+	pgCombat := float32(combat[nivel - 1] * players) * percent
+
+	return pgCombat
+}
+
+func combatPhase6LS(nivel, players int, percent float32) float32 {
+	combat := [...]int{152000, 191000, 249000, 327000, 424000, 541000}
+	pgCombat := float32(combat[nivel - 1] * players) * percent
+
+	return pgCombat
+}
+
+func combatPhasesShipLS(phase, players int, percent float32) float32 {
+	combat := [...]int{0, 0, 371000, 478000, 536000, 614000} 
+	pgCombatShip := float32(combat[phase - 1] * players) * percent 
+
+	return pgCombatShip
+}
+
+func find(lista []Personagem, estrela int, parametro []string, estrelas string) {
+	for _, dict := range lista {
+		if contains(parametro, dict.codechar) && dict.estrelas == estrelas {
+
+		}
+	}
+}
+
+func contains(stringSlice []string, searchString string) bool {
+    for _, value := range stringSlice {
+        if value == searchString {
+            return true
+        }
+    }
+    return false
 }
 
 

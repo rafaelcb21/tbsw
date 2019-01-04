@@ -1,7 +1,7 @@
 LS
 Phase 1 2☆
 Platoon 700000
-Combat  14550000 + 14550000 = 29100000 {24k + 27k + 40k + 53k + 67k + 80k}
+Combat  14550000 + 14550000 = 29100000 {24k + 27k + 40k + 53k + 67k + 80k} [24000, 24000, 27000, 27000, 40000, 40000, 53000, 53000, 67000, 67000, 80000, 80000]
 Special 7GE by player = 7*40 = 280 Phoenix 2☆
 Star 885000 + 6580000 + 45600000 = 53065000
 
@@ -19,7 +19,7 @@ Combat(4☆ Rebels (HRScout)) = 18600000 (372000 by player) {65k + 31k + 46k + 6
 Special(5☆ LS (HRSoldier)) 2 ROLO by player = 2*40 = 80 ROLO
 Star (3510000 + 27600000 + 64800000) + (3510000 + 22400000 + 52200000) = 174020000
 Platoon Ship 840000 [140k (x6)]
-Combat Ship 18550000 3☆ LS
+Combat Ship 18550000 3☆ LS 371k
 Star Ships 1920000 + 16500000 + 26300000 = 44720000
 
 Phase 4 5☆
@@ -29,7 +29,7 @@ Combat(5☆ Rebels (HRSoldier)) = 21150000 (423000 by player) {76k + 35k + 52k +
 Special(5☆ LS (ROLO)) 20 GET by player = 20*40 = 800 GET
 Star (5220000 + 34700000 + 78100000) + (5220000 + 28300000 + 62600000) = 214140000
 Platoon Ship 960000 [160k (x6)]
-Combat Ship 23900000 4☆ LS
+Combat Ship 23900000 4☆ LS 
 Star Ships 2176000 + 18700000 + 29800000 = 50676000
 
 Phase 5 6☆
@@ -54,3 +54,8 @@ Platoon Ship 1200000 [200k (x6)]
 Combat Ship 30700000 6☆ LS
 Star Ships 21600000 + 40800000 + 60000000 = 122400000
 
+def accumu(lis):
+    total = 0
+    for x in lis:
+        total += x
+        yield total
