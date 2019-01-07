@@ -10,6 +10,10 @@ import (
 )
 
 var url string = "https://swgoh.gg"
+var totalEstrelas []int
+var totalEstrela int
+var estrelasPorPhase []int
+var pgCombatByPhase []float32
 
 func getGuilda() (string, string) {
     res, err := http.Get("https://swgoh.gg/p/948239354/")
@@ -110,13 +114,76 @@ func main() {
 		sumPgNave += i
 	}
 
-	fmt.Println(todosPersonagensDaGuilda)
-	fmt.Println("=========================")
-	fmt.Println(todasNavesDaGuilda)
-	fmt.Println("=========================")
-	fmt.Println(todosPGsDaGuilda)
-	fmt.Println("=========================")
-	fmt.Println(sumPgPersonagem, sumPgNave, sumPgPersonagem+sumPgNave)
+	//fmt.Println(todosPersonagensDaGuilda)
+	//fmt.Println("=========================")
+	//fmt.Println(todasNavesDaGuilda)
+	//fmt.Println("=========================")
+	//fmt.Println(todosPGsDaGuilda)
+	//fmt.Println("=========================")
+	//fmt.Println(sumPgPersonagem, sumPgNave, sumPgPersonagem+sumPgNave)
 
 
+	pgsPhasesCharLS := [][]int{
+		[]int{885000, 7465000, 53065000},
+		[]int{1900000, 3800000, 19200000, 39000000, 82800000, 137800000},
+		[]int{3510000, 7020000, 29420000, 57020000, 109220000, 174020000},
+		[]int{5220000, 10440000, 38740000, 73440000, 136040000, 214140000},
+		//[]int{11100000, 25200000, 66200000, 115500000, 187100000, 276900000},
+		//[]int{26400000, 57400000, 116700000, 188700000, 270200000, 370200000},
+	}
+
+	//pgsPhasesShipsLS := [][]int{
+	//	[]int{1920000, 18420000, 44720000},
+	//	[]int{2176000, 20876000, 50676000},
+	//	[]int{18000000, 52000000, 102000000},
+	//	[]int{21600000, 62400000, 122400000},
+	//}
+
+	//for phase, i := range pgsPhasesCharLS {
+		pgCombatPhase1, gePhase1 := combatPhase1LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+		pgCombatPhase2, gePhase2 := combatPhase2LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+		pgCombatPhase3, roloPhase3 := combatPhase3LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+		pgCombatPhase4, gePhase4 := combatPhase4LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+
+		pgCombatByPhase = []float32{pgCombatPhase1, pgCombatPhase2, pgCombatPhase3, pgCombatPhase4}
+		//totalPG := pgCombatPhase1 + pgCombatPhase2  + pgCombatPhase3 + pgCombatPhase4 + float32(sumPgPersonagem)
+		//x := stars(pgCombatPhase1, pgCombatPhase2, pgCombatPhase3, pgCombatPhase4, i)
+		//totalEstrelas = append(totalEstrelas, x)
+		//estrelasPorPhase = append(estrelasPorPhase, x)
+		fmt.Println("=>", gePhase1, gePhase2, roloPhase3, gePhase4)
+	//}
+
+	x := stars(pgCombatByPhase, pgsPhasesCharLS)
+	fmt.Println("==>", x)
+
+	for _, i := range totalEstrelas {
+		totalEstrela += i
+	}
+	fmt.Println(estrelasPorPhase)
+	fmt.Println(totalEstrela)
+
+
+	//fmt.Println("======================")
+	//for phase, i := range pgsPhasesShipsLS {
+	//	x := stars(float32(sumPgNave), i)
+	//	fmt.Println("=>", sumPgNave, phase + 1, x)
+	//}
+
+}
+
+func stars(pg []float32, pgs [][]int) []int {
+	var estrelas []int
+	for i, value := range pgs {
+		for j, val := range value {
+			fmt.Println(int(pg[i]), val)
+			if pg[i] < float32(val) {
+				estrelas = append(estrelas, i)
+				
+			} else if pg[i] > float32(val) && j == len(value) - 1 {
+				fmt.Println(int(pg[i]), val)
+				estrelas = append(estrelas, len(value))
+			}
+		}	
+	}
+	return estrelas
 }
