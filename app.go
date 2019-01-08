@@ -125,11 +125,11 @@ func main() {
 
 	pgsPhasesCharLS := [][]int{
 		[]int{885000, 6580000, 45600000},
-		[]int{1900000, 1900000, 15400000, 19800000, 43800000, 55000000},
-		[]int{3510000, 3510000, 22400000, 27600000, 52200000, 64800000},
-		[]int{5220000, 5220000, 28300000, 34700000, 62600000, 78100000},
-		//[]int{11100000, 14100000, 41000000, 49300000, 71600000, 89800000},
-		//[]int{26400000, 31000000, 59300000, 72000000, 81500000, 100000000},
+		[]int{1900000, 3800000, 17300000, 35200000, 63600000, 98800000},
+		[]int{3510000, 7020000, 25910000, 50000000, 79800000, 117000000},
+		[]int{5220000, 10440000, 33520000, 63000000, 97300000, 140700000},
+		[]int{11100000, 25200000, 55100000, 90300000, 120900000, 161400000},
+		[]int{26400000, 57400000, 90300000, 131300000, 153500000, 181500000},
 	}
 
 	//pgsPhasesShipsLS := [][]int{
@@ -139,22 +139,26 @@ func main() {
 	//	[]int{21600000, 40800000, 60000000},
 	//}
 
-	//for phase, i := range pgsPhasesCharLS {
-		pgCombatPhase1, gePhase1 := combatPhase1LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
-		pgCombatPhase2, gePhase2 := combatPhase2LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
-		pgCombatPhase3, roloPhase3 := combatPhase3LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
-		pgCombatPhase4, gePhase4 := combatPhase4LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+	pgCombatPhase1, gePhase1 := combatPhase1LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+	pgCombatPhase2, gePhase2 := combatPhase2LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+	pgCombatPhase3, roloPhase3 := combatPhase3LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+	pgCombatPhase4, gePhase4 := combatPhase4LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+	pgCombatPhase5, gePhase5 := combatPhase5LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+	pgCombatPhase6, gePhase6 := combatPhase6LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
 
-		pgCombatByPhase = []float32{pgCombatPhase1, pgCombatPhase2, pgCombatPhase3, pgCombatPhase4}
-		//totalPG := pgCombatPhase1 + pgCombatPhase2  + pgCombatPhase3 + pgCombatPhase4 + float32(sumPgPersonagem)
-		//x := stars(pgCombatPhase1, pgCombatPhase2, pgCombatPhase3, pgCombatPhase4, i)
-		//totalEstrelas = append(totalEstrelas, x)
-		//estrelasPorPhase = append(estrelasPorPhase, x)
-		fmt.Println("=>", gePhase1, gePhase2, roloPhase3, gePhase4)
-	//}
+	pgCombatByPhase = []float32{
+		pgCombatPhase1 + float32(sumPgPersonagem),
+		pgCombatPhase2 + float32(sumPgPersonagem),
+		pgCombatPhase3 + float32(sumPgPersonagem),
+		pgCombatPhase4 + float32(sumPgPersonagem),
+		pgCombatPhase5 + float32(sumPgPersonagem),
+		pgCombatPhase6 + float32(sumPgPersonagem),
+	}
 
-	x := stars(pgCombatByPhase, pgsPhasesCharLS)
-	fmt.Println("==>", x)
+	fmt.Println("=>", gePhase1, gePhase2, roloPhase3, gePhase4, gePhase5, gePhase6)
+
+	totalEstrelas := stars(pgCombatByPhase, pgsPhasesCharLS)
+	fmt.Println("==>", totalEstrelas)
 
 	for _, i := range totalEstrelas {
 		totalEstrela += i
@@ -173,14 +177,19 @@ func main() {
 
 func stars(pg []float32, pgs [][]int) []int {
 	var estrelas []int
+	fmt.Println("&&&&&&&&&&&&&&&&&&&")
+	fmt.Println(pg)
+	fmt.Println(pgs)
+	fmt.Println("&&&&&&&&&&&&&&&&&&&")
 	for i, value := range pgs {
 		for j, val := range value {
-			fmt.Println(int(pg[i]), val)
 			if pg[i] < float32(val) {
-				estrelas = append(estrelas, i)
+				fmt.Println(int(pg[i]), val, "nao terminou")
+				estrelas = append(estrelas, j)
+				break
 				
 			} else if pg[i] > float32(val) && j == len(value) - 1 {
-				fmt.Println(int(pg[i]), val)
+				fmt.Println(int(pg[i]), val, "fim")
 				estrelas = append(estrelas, len(value))
 			}
 		}	

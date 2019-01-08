@@ -1,47 +1,48 @@
 *******PHASE 1*******
-39
-max GE : 273 287 4.87805
+40
+max GE : 280 294 4.7619047
 [Onoda Flazom]
 *******PHASE 2*******
-29
+30
 26
-max GE : 208 328 36.585365
-[Odracir Ossiac R2D2 Pecado da Ganância da Raposa Rafaelcb bufalhao Onoda C3P0 Flazom Fénix Ball Mestre Jiu Kim gwalker Little Horse]
-[Odracir Ossiac Fábio KJr Mestre Xadruk R2D2 Pecado da Ganância da Raposa Ramoon Rafaelcb Onoda fehtc C3P0 Sacramento Flazom gwalker Yvetan Little Horse]
+max GE : 208 336 38.095238
+[Onoda Fénix Ball bufalhao Flazom R2D2 Mestre Jiu Kim C3P0 Pecado da Ganância da Raposa Rafaelcb Odracir Ossiac Little Horse gwalker]
+[Onoda Yvetan fehtc Flazom R2D2 C3P0 Pecado da Ganância da Raposa Sacramento Rafaelcb Odracir Ossiac Fábio KJr Little Horse Mestre Xadruk gwalker Ramoon YURNERO]
 *******PHASE 3*******
 28
 9
-max ROLO : 18 82 78.048775
-[Odracir Ossiac New Ball Mestre Xadruk R2D2 Died Ramoon Onoda C3P0 Yankee2 Sacramento Flazom Mestre Jiu Kim Yvetan]
-[Odracir Ossiac Joseph New Ball Mestre Xadruk R2D2 Sandro 02 Drajor Pecado da Ganância da Raposa Nakan Doha Úrsula Syndulla Ramoon Ana Walker Rafaelcb bufalhao Onoda Zangado fehtc Tia Juju C3P0 Yankee2 Sacramento Flazom killerkolm Fénix Ball White Cent Mestre Jiu Kim Anidir Attom Edson Araujo gwalker Yvetan Little Horse AlexZuza]
+max ROLO : 18 84 78.57143
+[Onoda Yvetan Flazom R2D2 Mestre Jiu Kim C3P0 Sacramento Odracir Ossiac Died Mestre Xadruk New Ball Ramoon Yankee2 YURNERO]
+[Onoda Fénix Ball Yvetan fehtc bufalhao AlexZuza Joseph Drajor Edson Araujo Sandro 02 Ana Walker Flazom R2D2 Mestre Jiu Kim C3P0 Pecado da Ganância da Raposa Sacramento Rafaelcb killerkolm Odracir Ossiac Tia Juju Nakan Doha Zangado Little Horse Mestre Xadruk Úrsula Syndulla gwalker New Ball Ramoon Yankee2 White Cent Anidir Attom YURNERO]
 *******PHASE 4*******
 9
 7
-max GE : 140 820 82.92683
-[Odracir Ossiac Joseph New Ball Mestre Xadruk R2D2 Sandro 02 Drajor Pecado da Ganância da Raposa Nakan Doha Úrsula Syndulla Ramoon Ana Walker Rafaelcb bufalhao Onoda Zangado fehtc Tia Juju C3P0 Yankee2 Sacramento Flazom killerkolm Fénix Ball White Cent Mestre Jiu Kim Anidir Attom Edson Araujo gwalker Yvetan Little Horse AlexZuza]
-[Odracir Ossiac Joseph New Ball Sena Mestre Xadruk R2D2 Sandro 02 Drajor Died Nakan Doha Úrsula Syndulla Ramoon Ana Walker Rafaelcb bufalhao Onoda Zangado fehtc Tia Juju C3P0 Yankee2 Sacramento Flazom killerkolm Fénix Ball White Cent Mestre Jiu Kim Rodrigues Anidir Attom Edson Araujo gwalker Yvetan Little Horse AlexZuza]
-=> 273 208 18 140
-23862000 885000
-23862000 7465000
-23862000 53065000
-36519000 1900000
-36519000 3800000
-36519000 19200000
-36519000 39000000
-36519000 82800000
-36519000 137800000
-40920000 3510000
-40920000 7020000
-40920000 29420000
-40920000 57020000
-40920000 109220000
-40920000 174020000
-38493000 5220000
-38493000 10440000
-38493000 38740000
-38493000 73440000
-38493000 136040000
-38493000 214140000
-==> [0 1 1 1 2 2 2 3 3 3 3]
+max GE : 140 840 83.33333
+[Onoda Fénix Ball Yvetan fehtc bufalhao AlexZuza Joseph Drajor Edson Araujo Sandro 02 Ana Walker Flazom R2D2 Mestre Jiu Kim C3P0 Pecado da Ganância da Raposa Sacramento Rafaelcb killerkolm Odracir Ossiac Tia Juju Nakan Doha Zangado Little Horse Mestre Xadruk Úrsula Syndulla gwalker New Ball Ramoon Yankee2 White Cent Anidir Attom YURNERO]
+[Onoda Fénix Ball Yvetan Sena fehtc bufalhao AlexZuza Joseph Drajor Edson Araujo Sandro 02 Ana Walker Rodrigues Flazom R2D2 Mestre Jiu Kim C3P0 Sacramento Rafaelcb killerkolm Odracir Ossiac Tia Juju Nakan Doha Died Zangado Little Horse Mestre Xadruk Úrsula Syndulla gwalker New Ball Ramoon Yankee2 White Cent Anidir Attom YURNERO]
+*******PHASE 5*******
+70
+18
+max GE : 360 840 57.142853
+[Onoda fehtc bufalhao Flazom Mestre Xadruk Yankee2 Onoda Fénix Ball Yvetan Sena fehtc bufalhao AlexZuza Joseph]
+[Onoda Fénix Ball Yvetan Sena fehtc bufalhao Edson Araujo Sandro 02 Flazom R2D2 C3P0 Sacramento killerkolm Nakan Doha Zangado LukeRibeiro Little Horse Mestre Xadruk gwalker Ramoon Yankee2 White Cent Anidir Attom YURNERO]
+*******PHASE 6*******
+28
+1
+max GE : 20 840 97.61904
+[Onoda Fénix Ball Yvetan Sena fehtc bufalhao AlexZuza Joseph Edson Araujo Sandro 02 Ana Walker Rodrigues Flazom R2D2 Mestre Jiu Kim C3P0 Pecado da Ganância da Raposa Sacramento Rafaelcb Odracir Ossiac Tia Juju Fábio KJr Nakan Doha Died Zangado LukeRibeiro Little Horse Mestre Xadruk Úrsula Syndulla gwalker New Ball Ramoon Yankee2 White Cent Anidir Attom YURNERO Onoda Fénix Ball Yvetan Sena fehtc bufalhao AlexZuza Joseph Drajor Edson Araujo Sandro 02 Ana Walker Rodrigues Flazom R2D2 Mestre Jiu Kim C3P0 Pecado da Ganância da Raposa Sacramento Rafaelcb]
+[Onoda Fénix Ball Yvetan Sena fehtc bufalhao AlexZuza Joseph Drajor Edson Araujo Sandro 02 Ana Walker Rodrigues Flazom R2D2 Mestre Jiu Kim C3P0 Pecado da Ganância da Raposa Sacramento Rafaelcb killerkolm Odracir Ossiac Tia Juju Nakan Doha Died Zangado Sky W3N LukeRibeiro Little Horse Mestre Xadruk Úrsula Syndulla gwalker New Ball HB Ramoon Yankee2 White Cent Anidir Attom YURNERO Dec Astro TheHutt]
+=> 280 208 18 140 360 20
+&&&&&&&&&&&&&&&&&&&
+[6.173454e+07 7.479654e+07 7.895454e+07 7.662954e+07 8.993054e+07 7.516054e+07]
+[[885000 6580000 45600000] [1900000 3800000 17300000 35200000 63600000 98800000] [3510000 7020000 25910000 50000000 79800000 117000000] [5220000 10440000 33520000 63000000 97300000 140700000] [11100000 25200000 55100000 90300000 120900000 161400000] [26400000 57400000 90300000 131300000 153500000 181500000]]
+&&&&&&&&&&&&&&&&&&&
+61734540 45600000 fim
+74796544 98800000 nao terminou
+78954544 79800000 nao terminou
+76629536 97300000 nao terminou
+89930544 90300000 nao terminou
+75160544 90300000 nao terminou
+==> [3 5 4 4 3 2]
 []
-0
+21

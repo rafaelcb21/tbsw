@@ -192,27 +192,137 @@ func combatPhase4LS(nivel, integrantes int, percent float32, lista []Personagem)
 	return pgCombat, ge
 }
 
-func combatPhase5LS(nivel, integrantes int, percent float32, lista []Personagem) float32 {
+func combatPhase5LS(nivel, integrantes int, percent float32, lista []Personagem) (float32, float32) {
 	combat := [...]int{90000, 128000, 185000, 261000, 356000, 470000}
 	pgCombat := float32(combat[nivel - 1] * integrantes) * percent
+	var squadRebelsLessSquadPhoenix []string
 
-	//squadPhoenix
-	//squadRebels => "hoth-rebel-scout"
-	//special only "commander-luke-skywalker"
+	totalJogadores := len(jogadores(lista))
+	guildaSquadPhoenixCombat := find(jogadores(lista), lista, 6, squadPhoenix, "6")
+	guildaRebelsWithHRScoutCombat := find(jogadores(lista), lista, 6, squadRebels, "6")
+	guildaCLSSpecial := find(jogadores(lista), lista, 6, []string{"commander-luke-skywalker"}, "6")
 
+	var integrantesCombat []string
+	var integrantesSpecial []string
+	var melhorarIntegrantesCombat []string
+	var melhorarIntegrantesSpecial []string
+	
+	for _, dict := range guildaSquadPhoenixCombat {
+		for k, v:= range dict {
+			if len(v) >= 5 {
+				integrantesCombat = append(integrantesCombat, k)
+			} else {
+				melhorarIntegrantesCombat = append(melhorarIntegrantesCombat, k)
+			}
+		}
+	}
 
-	return pgCombat
+	for _, dict := range guildaRebelsWithHRScoutCombat {
+		for k, v:= range dict {
+			for _, char := range v {
+				if char != "chopper" || char != "ezra-bridger" || char != "garazeb-zeb-orrelios" || char != "hera-syndulla" || char != "kanan-jarrus" || char != "sabine-wren" {
+					squadRebelsLessSquadPhoenix = append(squadRebelsLessSquadPhoenix, char)
+				}
+			}
+
+			if len(squadRebelsLessSquadPhoenix) >= 5 && contains(squadRebelsLessSquadPhoenix, "hoth-rebel-scout") {
+				integrantesCombat = append(integrantesCombat, k)
+			} else {
+				melhorarIntegrantesCombat = append(melhorarIntegrantesCombat, k)
+			}
+		}
+	}
+
+	pgCombat = pgCombat + float32(combat[nivel - 1] * len(integrantesCombat)) * percent
+
+	for _, dict := range guildaCLSSpecial {
+		for k, v:= range dict {
+			if len(v) == 1 {
+				integrantesSpecial = append(integrantesSpecial, k)
+			} else {
+				melhorarIntegrantesSpecial = append(melhorarIntegrantesSpecial, k)
+			}
+		}
+	}
+
+	ge := float32(len(integrantesSpecial) * 20) //atendem ao requisito
+	gePossivel := float32(totalJogadores * 20)
+
+	fmt.Println("*******PHASE 5*******")
+	fmt.Println(len(integrantesCombat))
+	fmt.Println(len(integrantesSpecial))
+	fmt.Println("max GE :", ge, gePossivel, (1.0-(ge/gePossivel))*100)
+	fmt.Println(melhorarIntegrantesCombat)
+	fmt.Println(melhorarIntegrantesSpecial)
+
+	return pgCombat, ge
+
 }
 
-func combatPhase6LS(nivel, integrantes int, percent float32, lista []Personagem) float32 {
+func combatPhase6LS(nivel, integrantes int, percent float32, lista []Personagem) (float32, float32) {
 	combat := [...]int{152000, 191000, 249000, 327000, 424000, 541000}
 	pgCombat := float32(combat[nivel - 1] * integrantes) * percent
+	var squadRebelsLessSquadRogueOne []string
 
-	//squadRogueOne
-	//squadRebels
-	//special only "rebel-officer-leia-organa"
+	totalJogadores := len(jogadores(lista))
+	guildaSquadRogueOneCombat := find(jogadores(lista), lista, 7, squadRogueOne, "7")
+	guildasquadRebelsCombat := find(jogadores(lista), lista, 7, squadRebels, "7")
+	guildaROLOSpecial := find(jogadores(lista), lista, 7, []string{"rebel-officer-leia-organa"}, "7")
 
-	return pgCombat
+	var integrantesCombat []string
+	var integrantesSpecial []string
+	var melhorarIntegrantesCombat []string
+	var melhorarIntegrantesSpecial []string
+	
+	for _, dict := range guildaSquadRogueOneCombat {
+		for k, v:= range dict {
+			if len(v) >= 5 {
+				integrantesCombat = append(integrantesCombat, k)
+			} else {
+				melhorarIntegrantesCombat = append(melhorarIntegrantesCombat, k)
+			}
+		}
+	}
+
+	for _, dict := range guildasquadRebelsCombat {
+		for k, v:= range dict {
+			for _, char := range v {
+				if char != "baze-malbus" || char != "bistan" || char != "bodhi-rook" || char != "cassian-andor" || char != "chirrut-imwe" || char != "jyn-erso" || char != "k-2so" || char != "pao" || char != "scarif-rebel-pathfinder" {
+					squadRebelsLessSquadRogueOne = append(squadRebelsLessSquadRogueOne, char)
+				}
+			}
+
+			if len(squadRebelsLessSquadRogueOne) >= 5 && contains(squadRebelsLessSquadRogueOne, "hoth-rebel-scout") {
+				integrantesCombat = append(integrantesCombat, k)
+			} else {
+				melhorarIntegrantesCombat = append(melhorarIntegrantesCombat, k)
+			}
+		}
+	}
+
+	pgCombat = pgCombat + float32(combat[nivel - 1] * len(integrantesCombat)) * percent
+
+	for _, dict := range guildaROLOSpecial {
+		for k, v:= range dict {
+			if len(v) == 1 {
+				integrantesSpecial = append(integrantesSpecial, k)
+			} else {
+				melhorarIntegrantesSpecial = append(melhorarIntegrantesSpecial, k)
+			}
+		}
+	}
+
+	ge := float32(len(integrantesSpecial) * 20) //atendem ao requisito
+	gePossivel := float32(totalJogadores * 20)
+
+	fmt.Println("*******PHASE 6*******")
+	fmt.Println(len(integrantesCombat))
+	fmt.Println(len(integrantesSpecial))
+	fmt.Println("max GE :", ge, gePossivel, (1.0-(ge/gePossivel))*100)
+	fmt.Println(melhorarIntegrantesCombat)
+	fmt.Println(melhorarIntegrantesSpecial)
+
+	return pgCombat, ge
 }
 
 func combatPhasesShipLS(phase, players int, percent float32) float32 {
