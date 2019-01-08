@@ -17,8 +17,7 @@ var squadRebels = []string{"hoth-rebel-soldier", "hoth-rebel-scout", "chopper", 
 "lando-calrissian", "lobot", "luke-skywalker-farmboy", "obi-wan-kenobi-old-ben", "princess-leia",
 "r2-d2", "rebel-officer-leia-organa", "tormtrooper-han", "wedge-antilles", "chewbacca", "c-3po"}
 
-
-
+var capitalShips = []string{"endurance", "executrix", "home-one", "chimaera"}
 
 func combatPhase1LS(nivel, integrantes int, percent float32, lista []Personagem) (float32, float32) {
 	combat := [...]int{24000, 51000, 91000, 144000, 211000, 291000}
@@ -325,12 +324,31 @@ func combatPhase6LS(nivel, integrantes int, percent float32, lista []Personagem)
 	return pgCombat, ge
 }
 
-func combatPhasesShipLS(phase, players int, percent float32) float32 {
-	combat := [...]int{0, 0, 371000, 478000, 536000, 614000} 
-	pgCombatShip := float32(combat[phase - 1] * players) * percent 
+func combatPhasesShipLS(combat, integrantes int, percent float32, lista []Naves, sA string, sI int) float32 {
+	pgCombatShip := float32(combat * integrantes) * percent
+	guildaNavesCombat := findNaves(jogadoresNaves(lista), lista, sI, capitalShips, sA)
+
+	var integrantesCombat []string
+	var melhorarIntegrantesCombat []string
+
+	for _, dict := range guildaNavesCombat {
+		for k, v:= range dict {
+			if len(v) >= 3 && contains(v, "endurance") || len(v) >= 3 && contains(v, "executrix") || len(v) >= 3 && contains(v, "home-one") || len(v) >= 3 && contains(v, "chimaera") {
+				integrantesCombat = append(integrantesCombat, k)
+			} else {
+				melhorarIntegrantesCombat = append(melhorarIntegrantesCombat, k)
+			}
+		}
+	}
+
+	fmt.Printf("*******PHASE %s*******\n", sA)
+	fmt.Println(len(integrantesCombat))
+	fmt.Println(melhorarIntegrantesCombat)
 
 	return pgCombatShip
 }
+
+
 
 func find(players []string, lista []Personagem, estrela int, parametro []string, estrelas string) []map[string][]string {
 	var todosPlayers []map[string][]string
@@ -339,6 +357,33 @@ func find(players []string, lista []Personagem, estrela int, parametro []string,
 	}
 	
 	return todosPlayers
+}
+
+func findNaves(players []string, lista []Naves, estrela int, parametro []string, estrelas string) []map[string][]string {
+	var todosPlayers []map[string][]string
+	for _, player := range players {
+		todosPlayers = append(todosPlayers, buscaEntreTodosPlayersNaves(lista, estrela, parametro, estrelas, player))
+	}
+	
+	return todosPlayers
+}
+
+func buscaEntreTodosPlayersNaves(lista []Naves, estrela int, parametro []string, estrelas string, player string) map[string][]string {
+	var list []string
+	
+	dictPlayerCharacters := make(map[string][]string)
+	for _, dict := range lista {
+		estrelasPersonagem, _ := strconv.Atoi(dict.estrelas)
+		estrelasParametro, _ := strconv.Atoi(estrelas)
+		if contains(parametro, dict.codechar) &&  estrelasPersonagem >= estrelasParametro && dict.player == player {
+			list = append(list, dict.codechar)
+		}
+	}
+	
+	dictPlayerCharacters[player] = list
+
+	return dictPlayerCharacters
+
 }
 
 func buscaEntreTodosPlayers(lista []Personagem, estrela int, parametro []string, estrelas string, player string) map[string][]string {
@@ -369,6 +414,22 @@ func contains(stringSlice []string, searchString string) bool {
 }
 
 func jogadores(elements []Personagem) []string {
+	var playersList []string
+	encountered := map[string]bool{}
+
+	for _, value := range elements {
+        if encountered[value.player] == true {
+            // Do not add duplicate.
+        } else {
+            encountered[value.player] = true
+            playersList = append(playersList, value.player)
+        }
+	}
+
+    return playersList
+}
+
+func jogadoresNaves(elements []Naves) []string {
 	var playersList []string
 	encountered := map[string]bool{}
 

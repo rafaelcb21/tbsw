@@ -12,8 +12,10 @@ import (
 var url string = "https://swgoh.gg"
 var totalEstrelas []int
 var totalEstrela int
-var estrelasPorPhase []int
+var totalEstrelaShip int
 var pgCombatByPhase []float32
+var pgCombatShipsByPhase []float32
+
 
 func getGuilda() (string, string) {
     res, err := http.Get("https://swgoh.gg/p/948239354/")
@@ -132,12 +134,12 @@ func main() {
 		[]int{26400000, 57400000, 90300000, 131300000, 153500000, 181500000},
 	}
 
-	//pgsPhasesShipsLS := [][]int{
-	//	[]int{1920000, 16500000, 26300000},
-	//	[]int{2176000, 18700000, 29800000},
-	//	[]int{18000000, 34000000, 50000000},
-	//	[]int{21600000, 40800000, 60000000},
-	//}
+	pgsPhasesShipsLS := [][]int{
+		[]int{1920000, 16500000, 26300000},
+		[]int{2176000, 18700000, 29800000},
+		[]int{18000000, 34000000, 50000000},
+		[]int{21600000, 40800000, 60000000},
+	}
 
 	pgCombatPhase1, gePhase1 := combatPhase1LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
 	pgCombatPhase2, gePhase2 := combatPhase2LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
@@ -145,6 +147,11 @@ func main() {
 	pgCombatPhase4, gePhase4 := combatPhase4LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
 	pgCombatPhase5, gePhase5 := combatPhase5LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
 	pgCombatPhase6, gePhase6 := combatPhase6LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
+
+	pgCombatShipPhase3 := combatPhasesShipLS(371000, len(pgPersonagem), 1.0, todasNavesDaGuilda, "3", 3)
+	pgCombatShipPhase4 := combatPhasesShipLS(478000, len(pgPersonagem), 1.0, todasNavesDaGuilda, "4", 4)
+	pgCombatShipPhase5 := combatPhasesShipLS(536000, len(pgPersonagem), 1.0, todasNavesDaGuilda, "5", 5)
+	pgCombatShipPhase6 := combatPhasesShipLS(614000, len(pgPersonagem), 1.0, todasNavesDaGuilda, "6", 6)
 
 	pgCombatByPhase = []float32{
 		pgCombatPhase1 + float32(sumPgPersonagem),
@@ -155,16 +162,32 @@ func main() {
 		pgCombatPhase6 + float32(sumPgPersonagem),
 	}
 
+	pgCombatShipsByPhase = []float32{
+		pgCombatShipPhase3 + float32(sumPgNave),
+		pgCombatShipPhase4 + float32(sumPgNave),
+		pgCombatShipPhase5 + float32(sumPgNave),
+		pgCombatShipPhase6 + float32(sumPgNave),
+	}
+
 	fmt.Println("=>", gePhase1, gePhase2, roloPhase3, gePhase4, gePhase5, gePhase6)
 
 	totalEstrelas := stars(pgCombatByPhase, pgsPhasesCharLS)
 	fmt.Println("==>", totalEstrelas)
 
+	totalEstrelasShips := stars(pgCombatShipsByPhase, pgsPhasesShipsLS)
+	fmt.Println("===>", totalEstrelasShips)
+
 	for _, i := range totalEstrelas {
 		totalEstrela += i
 	}
-	fmt.Println(estrelasPorPhase)
+
 	fmt.Println(totalEstrela)
+
+	for _, i := range totalEstrelasShips {
+		totalEstrelaShip += i
+	}
+
+	fmt.Println(totalEstrelaShip)
 
 
 	//fmt.Println("======================")
