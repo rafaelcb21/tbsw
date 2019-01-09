@@ -17,7 +17,49 @@ var squadRebels = []string{"hoth-rebel-soldier", "hoth-rebel-scout", "chopper", 
 "lando-calrissian", "lobot", "luke-skywalker-farmboy", "obi-wan-kenobi-old-ben", "princess-leia",
 "r2-d2", "rebel-officer-leia-organa", "tormtrooper-han", "wedge-antilles", "chewbacca", "c-3po"}
 
-var capitalShips = []string{"endurance", "executrix", "home-one", "chimaera"}
+var ships = []string{
+	"ahsoka-tanos-jedi-starfighter",
+	"anakins-eta-2-starfighter",
+	"b-28-extinction-class-bomber",
+	"biggs-darklighters-x-wing",
+	"bistans-u-wing",
+	"cassians-u-wing",
+	"chimaera",
+	"clone-sergeants-arc-170",
+	"endurance",
+	"executrix",
+	"first-order-sf-tie-fighter",
+	"first-order-tie-fighter",
+	"gauntlet-starfighter",
+	"geonosian-soldiers-starfighter",
+	"geonosian-spys-starfighter",
+	"ghost",
+	"home-one",
+	"hounds-tooth",
+	"ig-2000",
+	"imperial-tie-fighter",
+	"jedi-consulars-starfighter",
+	"kylo-rens-command-shuttle",
+	"landos-millennium-falcon",
+	"millennium-falcon-ep-vii",
+	"phantom-ii",
+	"plo-koons-jedi-starfighter",
+	"poe-damerons-x-wing",
+	"resistance-x-wing",
+	"rexs-arc-170",
+	"scimitar",
+	"sith-fighter",
+	"slave-i",
+	"sun-facs-geonosian-starfighter",
+	"tie-advanced-x1",
+	"tie-reaper",
+	"tie-silencer",
+	"umbaran-starfighter",
+	"wedge-antilless-x-wing",
+	"xanadu-blood",
+}
+
+
 
 func combatPhase1LS(nivel, integrantes int, percent float32, lista []Personagem) (float32, float32) {
 	combat := [...]int{24000, 51000, 91000, 144000, 211000, 291000}
@@ -324,9 +366,9 @@ func combatPhase6LS(nivel, integrantes int, percent float32, lista []Personagem)
 	return pgCombat, ge
 }
 
-func combatPhasesShipLS(combat, integrantes int, percent float32, lista []Naves, sA string, sI int) float32 {
-	pgCombatShip := float32(combat * integrantes) * percent
-	guildaNavesCombat := findNaves(jogadoresNaves(lista), lista, sI, capitalShips, sA)
+func combatPhasesShipLS(combat, percent float32, lista []Naves, sA string, sI int) float32 {
+	
+	guildaNavesCombat := findNaves(jogadoresNaves(lista), lista, sI, ships, sA)
 
 	var integrantesCombat []string
 	var melhorarIntegrantesCombat []string
@@ -341,9 +383,12 @@ func combatPhasesShipLS(combat, integrantes int, percent float32, lista []Naves,
 		}
 	}
 
+	pgCombatShip := combat * float32(len(integrantesCombat)) * percent
+
 	fmt.Printf("*******PHASE %s*******\n", sA)
 	fmt.Println(len(integrantesCombat))
 	fmt.Println(melhorarIntegrantesCombat)
+	fmt.Println(int(pgCombatShip))
 
 	return pgCombatShip
 }
@@ -370,7 +415,7 @@ func findNaves(players []string, lista []Naves, estrela int, parametro []string,
 
 func buscaEntreTodosPlayersNaves(lista []Naves, estrela int, parametro []string, estrelas string, player string) map[string][]string {
 	var list []string
-	
+
 	dictPlayerCharacters := make(map[string][]string)
 	for _, dict := range lista {
 		estrelasPersonagem, _ := strconv.Atoi(dict.estrelas)

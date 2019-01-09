@@ -148,10 +148,10 @@ func main() {
 	pgCombatPhase5, gePhase5 := combatPhase5LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
 	pgCombatPhase6, gePhase6 := combatPhase6LS(6, len(pgPersonagem), 1.0, todosPersonagensDaGuilda)
 
-	pgCombatShipPhase3 := combatPhasesShipLS(371000, len(pgPersonagem), 1.0, todasNavesDaGuilda, "3", 3)
-	pgCombatShipPhase4 := combatPhasesShipLS(478000, len(pgPersonagem), 1.0, todasNavesDaGuilda, "4", 4)
-	pgCombatShipPhase5 := combatPhasesShipLS(536000, len(pgPersonagem), 1.0, todasNavesDaGuilda, "5", 5)
-	pgCombatShipPhase6 := combatPhasesShipLS(614000, len(pgPersonagem), 1.0, todasNavesDaGuilda, "6", 6)
+	pgCombatShipPhase3 := combatPhasesShipLS(371000, 1.0, todasNavesDaGuilda, "3", 3)
+	pgCombatShipPhase4 := combatPhasesShipLS(478000, 1.0, todasNavesDaGuilda, "4", 4)
+	pgCombatShipPhase5 := combatPhasesShipLS(536000, 1.0, todasNavesDaGuilda, "5", 5)
+	pgCombatShipPhase6 := combatPhasesShipLS(614000, 1.0, todasNavesDaGuilda, "6", 6)
 
 	pgCombatByPhase = []float32{
 		pgCombatPhase1 + float32(sumPgPersonagem),
